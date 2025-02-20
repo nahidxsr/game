@@ -1,81 +1,28 @@
-document.addEventListener("DOMContentLoaded", function () {
-    checkStoredTasks();
-    playWelcomeSound();
-});
+// বাটন ক্লিক করলে গেম পেজে যাবে
+function redirectToGame() {
+    window.location.href = "https://your-game-link.com"; // এখানে গেমের লিংক দাও
+}
 
-document.querySelectorAll(".task-button").forEach(button => {
-    button.addEventListener("click", function () {
-        let taskNumber = this.getAttribute("data-task");
-        let link = this.getAttribute("data-link");
-        playSound("clickSound");
-
-        this.innerHTML = "Loading...";
-        playSound("loadingSound");
-
-        setTimeout(() => {
-            this.innerHTML = "✔ Task " + taskNumber + " Complete";
-            this.style.backgroundColor = "green";
-            playSound("successSound");
-
-            saveTaskStatus(taskNumber);
-            checkTasks();
-
-            // লিংকে নিয়ে যাওয়া
-            window.location.href = link;
-        }, 5000);
+// "Nahid Bro" ASCII নামের সংখ্যা পরিবর্তনের জন্য
+const asciiName = document.getElementById("nahid-name");
+let asciiText = asciiName.innerHTML;
+function glitchText() {
+    asciiText = asciiText.replace(/[A-Z]/g, function() {
+        return Math.floor(Math.random() * 10); // এলোমেলো সংখ্যা বসানো
     });
-});
+    asciiName.innerHTML = asciiText;
+    setTimeout(glitchText, 500);
+}
+glitchText();
 
-function saveTaskStatus(taskNumber) {
-    let completedTasks = JSON.parse(localStorage.getItem("completedTasks")) || [];
-    if (!completedTasks.includes(taskNumber)) {
-        completedTasks.push(taskNumber);
-        localStorage.setItem("completedTasks", JSON.stringify(completedTasks));
-
-        setTimeout(() => {
-            localStorage.removeItem("completedTasks"); // 3 মিনিট পর রিসেট
-        }, 180000);
+// ব্যাকগ্রাউন্ডের সংখ্যা পরিবর্তন
+const matrixBackground = document.querySelector(".matrix-background");
+function generateMatrixNumbers() {
+    let matrixText = "";
+    for (let i = 0; i < 500; i++) { // এলোমেলো সংখ্যার ব্যাকগ্রাউন্ড
+        matrixText += Math.floor(Math.random() * 10) + " ";
+        if (i % 50 === 0) matrixText += "\n";
     }
+    matrixBackground.innerText = matrixText;
 }
-
-function checkStoredTasks() {
-    let completedTasks = JSON.parse(localStorage.getItem("completedTasks")) || [];
-
-    document.querySelectorAll(".task-button").forEach(button => {
-        let taskNumber = button.getAttribute("data-task");
-
-        if (completedTasks.includes(taskNumber)) {
-            button.innerHTML = "✔ Task " + taskNumber + " Complete";
-            button.style.backgroundColor = "green";
-        }
-    });
-
-    checkTasks();
-}
-
-function checkTasks() {
-    let completedTasks = document.querySelectorAll(".task-button[style*='green']").length;
-    if (completedTasks === 3) {
-        playSound("completeSound");
-        document.getElementById("playButton").disabled = false;
-    }
-}
-
-document.getElementById("playButton").addEventListener("click", function () {
-    playSound("finalSound");
-    setTimeout(() => {
-        window.location.href = this.getAttribute("data-link");
-    }, 1000);
-});
-
-function playSound(soundId) {
-    let sound = document.getElementById(soundId);
-    sound.play();
-}
-
-function playWelcomeSound() {
-    playSound("welcomeSound");
-    setTimeout(() => {
-        playSound("instructionSound");
-    }, 2000);
-}
+setInterval(generateMatrixNumbers, 300);
