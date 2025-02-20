@@ -1,68 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
 body {
     background-color: black;
     color: #00ff00;
-    font-family: 'Courier New', monospace;
+    font-family: 'Press Start 2P', monospace;
     text-align: center;
+    overflow: hidden;
 }
 
-h1 {
-    font-size: 28px;
-    text-shadow: 0 0 10px #00ff00;
-    animation: hacker-text 1.5s infinite alternate;
-}
+/* হ্যাকার ASCII আর্ট স্টাই@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
-@keyframes hacker-text {
-    from { opacity: 0.6; }
-    to { opacity: 1; }
-}
-
-/* বাটন ডিজাইন */
-button {
-    background: black;
+body {
+    background-color: black;
     color: #00ff00;
-    font-size: 20px;
-    padding: 15px 30px;
-    border: 2px solid #00ff00;
-    box-shadow: 0 0 10px #00ff00;
-    margin: 10px;
-    cursor: pointer;
-    transition: 0.3s;
-    position: relative;
+    font-family: 'Press Start 2P', monospace;
+    text-align: center;
+    overflow: hidden;
+}
+
+/* ASCII নামের ডিজাইন (সংখ্যা পরিবর্তন হবে) */
+.ascii-art pre {
+    font-size: 16px;
     font-weight: bold;
-    text-transform: uppercase;
+    text-shadow: 0 0 10px red, 0 0 20px blue;
+    animation: asciiGlitch 1s infinite alternate;
 }
 
-/* বাটন হোভার */
-button:hover {
-    background: #00ff00;
-    color: black;
+/* সংখ্যা পরিবর্তনের এনিমেশন */
+@keyframes asciiGlitch {
+    0% { text-shadow: 2px 2px #ff0000; color: #00ff00; }
+    50% { text-shadow: -2px -2px #00ff00; color: #ff0000; }
+    100% { text-shadow: 2px 2px #0000ff; color: #00ffff; }
 }
 
-/* লোডিং স্পিনার */
-.loading::after {
-    content: "";
-    display: inline-block;
-    width: 15px;
-    height: 15px;
-    border: 3px solid #00ff00;
-    border-top-color: transparent;
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
+/* ব্যাকগ্রাউন্ডের ছোট ছোট সংখ্যা */
+.matrix-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    color: rgba(0, 255, 0, 0.3);
+    font-size: 14px;
+    font-family: monospace;
+    white-space: pre;
+    overflow: hidden;
+    animation: matrixFlow 10s linear infinite;
+}
+
+@keyframes matrixFlow {
+    from { transform: translateY(-100%); }
+    to { transform: translateY(100%); }
+}
+
+/* গ্লিচি হ্যাকার বাটন */
+.glitch-button {
+    background-color: black;
+    color: #ff0000;
+    font-size: 24px;
+    border: 3px solid #ff0000;
+    padding: 15px 40px;
+    cursor: pointer;
+    font-family: 'Press Start 2P', monospace;
     position: absolute;
-    right: -25px;
     top: 50%;
-    transform: translateY(-50%);
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    box-shadow: 0px 0px 10px red, 0px 0px 20px blue;
 }
 
-/* লোডিং স্পিন অ্যানিমেশন */
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+.glitch-button:hover {
+    animation: glitch 0.3s infinite alternate;
 }
 
-/* প্লে বাটন ডিজেবল থাকলে */
-button:disabled {
-    background: gray;
-    box-shadow: none;
-    cursor: not-allowed;
-  }
+@keyframes glitch {
+    0% { text-shadow: 2px 2px #00ff00, -2px -2px #ff0000; }
+    50% { text-shadow: -2px -2px #ff0000, 2px 2px #00ff00; }
+    100% { text-shadow: 2px 2px #0000ff, -2px -2px #ff0000; }
+        }
