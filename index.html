@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hacker Task System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body onload="playWelcomeSound()">
+
+    <div class="container">
+        <h1 id="animatedName">N4H1D BR0</h1>
+        <p id="taskMessage">Complete the tasks to unlock the Play Now button!</p>
+
+        <button class="task-button" data-task="1" data-link="https://t.me/Earning_with_Nahid">Task 1</button>
+        <button class="task-button" data-task="2" data-link="https://t.me/Earning_with_Nahid">Task 2</button>
+        <button class="task-button" data-task="3" data-link="https://link3.com">Task 3</button>
+
+        <button id="playButton" data-link="https://game-link.com" disabled>PLAY NOW</button>
+    </div>
+
+    <!-- সাউন্ড ফাইল -->
+    <audio id="welcomeSound" src="audio/welcome.mp3"></audio>
+    <audio id="instructionSound" src="audio/instruction.mp3"></audio>
+    <audio id="clickSound" src="audio/click.mp3"></audio>
+    <audio id="loadingSound" src="audio/loading.mp3"></audio>
+    <audio id="successSound" src="audio/success.mp3"></audio>
+    <audio id="completeSound" src="audio/complete.mp3"></audio>
+    <audio id="finalSound" src="audio/final.mp3"></audio>
+
+    <script src="script.js"></script>
+</body>
+  </html>
