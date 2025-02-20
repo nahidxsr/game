@@ -3,31 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hacker Task System</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Hacker Themed Task</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
-<body onload="playWelcomeSound()">
-
-    <div class="container">
-        <h1 id="animatedName">N4H1D BR0</h1>
-        <p id="taskMessage">Complete the tasks to unlock the Play Now button!</p>
-
+<body>
+    <h1>Welcome to Nahid's Hacker System</h1>
+    
+    <div class="buttons">
         <button class="task-button" data-task="1" data-link="https://t.me/Earning_with_Nahid">Task 1</button>
-        <button class="task-button" data-task="2" data-link="https://t.me/Earning_with_Nahid">Task 2</button>
-        <button class="task-button" data-task="3" data-link="https://link3.com">Task 3</button>
-
-        <button id="playButton" data-link="https://game-link.com" disabled>PLAY NOW</button>
+        <button class="task-button" data-task="2" data-link="https://example.com/task2">Task 2</button>
+        <button class="task-button" data-task="3" data-link="https://example.com/task3">Task 3</button>
     </div>
 
-    <!-- সাউন্ড ফাইল -->
-    <audio id="welcomeSound" src="audio/welcome.mp3"></audio>
-    <audio id="instructionSound" src="audio/instruction.mp3"></audio>
-    <audio id="clickSound" src="audio/click.mp3"></audio>
-    <audio id="loadingSound" src="audio/loading.mp3"></audio>
-    <audio id="successSound" src="audio/success.mp3"></audio>
-    <audio id="completeSound" src="audio/complete.mp3"></audio>
-    <audio id="finalSound" src="audio/final.mp3"></audio>
+    <button id="playButton" data-link="https://example.com/play" disabled>Play Now</button>
+
+    <!-- Sound Files -->
+    <audio id="welcomeSound" src="sounds/welcome.mp3"></audio>
+    <audio id="instructionSound" src="sounds/instruction.mp3"></audio>
+    <audio id="clickSound" src="sounds/click.mp3"></audio>
+    <audio id="loadingSound" src="sounds/loading.mp3"></audio>
+    <audio id="successSound" src="sounds/success.mp3"></audio>
+    <audio id="completeSound" src="sounds/complete.mp3"></audio>
+    <audio id="finalSound" src="sounds/final.mp3"></audio>
 
     <script src="script.js"></script>
 </body>
-  </html>
+</html>
