@@ -19,6 +19,9 @@ document.querySelectorAll(".task-button").forEach(button => {
 
             saveTaskStatus(taskNumber);
             checkTasks();
+
+            // লিংকে নিয়ে যাওয়া
+            window.location.href = link;
         }, 5000);
     });
 });
